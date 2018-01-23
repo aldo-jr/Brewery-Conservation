@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactGA from 'react-ga'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import ScrollToTop from "./components/ScrollToTop";
+import Header from './components/views/Shared/Header'
+import NotFound from "./components/views/404/NotFound";
+import HomePage from './components/views/Home/HomePage';
+
+// Icons
+import fontawesome from '@fortawesome/fontawesome'
+import solids from '@fortawesome/fontawesome-free-solid'
+import brands from '@fortawesome/fontawesome-free-brands'
+
+fontawesome.library.add(brands, solids)
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <ScrollToTop>
+          <Header/>
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route component={NotFound}/>
+          </Switch>
+        </ScrollToTop>
+      </Router>
     );
   }
 }
