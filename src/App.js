@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import ScrollToTop from "./components/ScrollToTop";
+import React, { Component } from 'react'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import ScrollToTop from "./components/ScrollToTop"
 import Header from './components/views/Shared/Header'
-import NotFound from "./components/views/404/NotFound";
-import HomePage from './components/views/Home/HomePage';
+import Footer from './components/views/Shared/Footer'
+import NotFound from "./components/views/404/NotFound"
+import Login from './components/views/Login/Login'
+import HomePage from './components/views/Home/HomePage'
+
 
 // Icons
 import fontawesome from '@fortawesome/fontawesome'
@@ -19,9 +22,11 @@ class App extends Component {
         <ScrollToTop>
           <Header/>
           <Switch>
-            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/" component={Login}/>
+            <Route exact path="/panel" component={HomePage}/>
             <Route component={NotFound}/>
           </Switch>
+          <Footer/>
         </ScrollToTop>
       </Router>
     );
