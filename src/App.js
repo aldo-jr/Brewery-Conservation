@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactGA from 'react-ga'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ScrollToTop from "./components/ScrollToTop";
 import Header from './components/views/Shared/Header'
