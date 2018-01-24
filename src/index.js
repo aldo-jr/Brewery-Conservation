@@ -9,11 +9,13 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/style/style.min.css';
+import {authReducer} from './reducers/authReducer';
 
 const dest = document.getElementById('root');
 
 const reducer = combineReducers({
-  form: reduxFormReducer
+  form: reduxFormReducer,
+  auth: authReducer
 })
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleweare))
