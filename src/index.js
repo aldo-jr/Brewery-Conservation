@@ -11,12 +11,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './assets/style/style.min.css';
 import {authReducer} from './reducers/authReducer';
 import {bottlesReducer} from './reducers/bottlesReducer';
+import {alertsReducer} from './reducers/alertsReducer';
 
 
 const dest = document.getElementById('root');
 
 const reducer = combineReducers({
   form: reduxFormReducer,
+  alerts: alertsReducer,
   auth: authReducer,
   bottles: bottlesReducer
 })

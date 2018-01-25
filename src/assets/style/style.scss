@@ -24,3 +24,25 @@ body {
   border-radius: 10px;
   background:#ccc;
 }
+
+/* Alerts style */
+
+.global-alert {
+  width: 100%;
+  height: 0;
+  position: fixed;
+
+  left: 0;
+  top: 80px;
+  z-index: 1040;
+
+  > .alert-center {
+    width: 100%;
+    max-width: 600px;
+    .alert {
+      float: left;
+      width: 100%;
+      font-size: 1.2em;
+    }
+  }
+}

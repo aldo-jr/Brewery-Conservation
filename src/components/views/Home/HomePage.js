@@ -13,6 +13,11 @@ class HomePage extends Component {
     clearInterval(this.interval);
   }
 
+  static getStatus(current,maximum,minimum){
+    if(current > maximum || current < minimum) return "danger";
+    else  return'success';
+  }
+
   render() {
     return (
       <div>
@@ -23,11 +28,7 @@ class HomePage extends Component {
 
           <section className="row mt-3 justify-content-center">
             {this.props.bottles.infos ? this.props.bottles.infos.map((bottle, index) => {
-              let status =
-                (parseInt(bottle.current_temp, 10) > parseInt(bottle.maximum_temp, 10) ||
-                  parseInt(bottle.current_temp, 10) < parseInt(bottle.minimum_temp, 10)) ?
-                  "danger" :
-                  'success';
+              let status = this.getStatus(parseInt(bottle.current_temp, 10),parseInt(bottle.maximum_temp, 10),parseInt(bottle.minimum_temp, 10));
               return (
                 <section className="col-12 col-sm-6 col-md-4 mb-3" key={index}>
                   <div className='bottle-detail pb-3'>

@@ -6,6 +6,7 @@ import VerifyAuth from "./components/VerifyAuth"
 import {isAuthenticated} from './actions/auth/actionCreator';
 import Header from './components/views/Shared/Header'
 import Footer from './components/views/Shared/Footer'
+import Alerts from './components/views/Shared/Alerts';
 import NotFound from "./components/views/404/NotFound"
 import Login from './components/views/Login/Login'
 import Logout from './components/views/Login/Logout'
@@ -55,6 +56,7 @@ class App extends Component {
                   <Route exact path='/logout' component={Logout}/>
                   <Route component={NotFound}/>
                 </Switch>
+                <Alerts/>
               </PrivateRoute>
             </VerifyAuth>
             <Route component={NotFound}/>
