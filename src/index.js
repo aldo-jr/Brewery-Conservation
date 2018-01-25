@@ -10,12 +10,15 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/style/style.min.css';
 import {authReducer} from './reducers/authReducer';
+import {bottlesReducer} from './reducers/bottlesReducer';
+
 
 const dest = document.getElementById('root');
 
 const reducer = combineReducers({
   form: reduxFormReducer,
-  auth: authReducer
+  auth: authReducer,
+  bottles: bottlesReducer
 })
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleweare))

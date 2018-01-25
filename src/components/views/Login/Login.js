@@ -23,16 +23,18 @@ class Login extends Component {
     }
   }
 
-  async componentWillMount() {
-    await this.props.isAuthenticated(async (data)=>{if (await data) this.props.history.push('/panel')});
+  componentWillMount() {
+    if (isAuthenticated()) this.props.history.push('/panel');
   }
 
   render() {
     return (
+      <section className="container">
       <div>
         {this.errorMessage()}
         <LoginForm onSubmit={this.submit.bind(this)}/>
       </div>
+      </section>
     )
   }
 }

@@ -7,13 +7,13 @@ export const AUTHENTICATION_ERROR = 'authentication_error';
 export const STORE_USER = 'store_user';
 
 export function signInAction({email, password}, history, path = {pathname: '/panel'}) {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch({type: AUTHENTICATION_ERROR, payload: ''});
-    await axios.post(`${UrlAPI.getUrl()}/web/login`, {email, password})
+    axios.post(`${UrlAPI.getUrl()}/web/auth/login`, {email, password})
       .then(res => {
-        if (res.headers.authorization) {
+        if (res.data.auth) {
           dispatch({type: AUTHENTICATED});
-          localStorage.setItem('user', res.headers.authorization);
+          localStorage.setItem('user', res.data.token);
           history.push(path.pathname);
         }
         else {
@@ -35,17 +35,26 @@ export function signOutAction(history) {
   }
 }
 
-export function isAuthenticated(func) {
-  let user = localStorage.getItem('user');
-  if(user){
-    axios.get(`${UrlAPI.getUrl()}/web/user/infos`)
-      .then(res => {
-        func(res.data.valid)
-      })
-      .catch(() => {
-        func(false)
-      })
-  } else {
-    func(false)
+export function isAuthenticated() {
+  return localStorage.getItem('user')
+}
+
+export function verifyToken(history) {
+  return dispatch => {
+    if (localStorage.getItem('user')) {
+      axios.get(`${UrlAPI.getUrl()}/web/auth/me`)
+        .then(res => {
+          dispatch({type: STORE_USER, payload:res.data.attributes});
+          dispatch({type: AUTHENTICATED});
+        })
+        .catch(() => {
+          dispatch({type: UNAUTHENTICATED});
+          localStorage.clear();
+          history.push('/', {});
+        })
+    } else {
+      dispatch({type: UNAUTHENTICATED});
+    }
+    return false;
   }
 }
