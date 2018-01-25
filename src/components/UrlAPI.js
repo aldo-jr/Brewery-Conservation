@@ -1,6 +1,6 @@
 export default class UrlAPI{
   static getUrl(){
-    return 'http://localhost:3001';
+    return 'https://dry-plateau-42363.herokuapp.com';
   }
 }
 
