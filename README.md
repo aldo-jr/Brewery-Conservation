@@ -1,7 +1,7 @@
 # Brewery-Conservation
 
 ## Homolog env
-This application is deployed on [this firebase link](https://brewery-conservation.firebaseapp.com/panel)
+This application is deployed on [this firebase link](https://brewery-conservation.firebaseapp.com)
 
 And server side is deployed on [this Heroku link](https://dry-plateau-42363.herokuapp.com)
 
