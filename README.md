@@ -3,7 +3,13 @@
 ## Homolog env
 This application is deployed on [this firebase link](https://brewery-conservation.firebaseapp.com/panel)
 
-And server side is deployed on [this Heroku link](https://dry-plateau-42363.herokuapp.com) 
+And server side is deployed on [this Heroku link](https://dry-plateau-42363.herokuapp.com)
+
+## Instructions
+User information to use on this application:
+
+email: email@domain.com
+password: 123456 
 
 ## Instalation
 
@@ -45,3 +51,4 @@ I could have done the tests, but for the sake of time, I'll leave it to do on a 
 - I will improve the layout, UX and UI.
 - Transform this web application on PWA (Progressive Web App)
 - Use pus notification
+- Button to logout (access /logout)
