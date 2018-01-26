@@ -50,5 +50,5 @@ I could have done the tests, but for the sake of time, I'll leave it to do on a 
 - I'll open a websocket with server side, to get real time information
 - I will improve the layout, UX and UI.
 - Transform this web application on PWA (Progressive Web App)
-- Use pus notification
+- Use push notification
 - Button to logout (access /logout)
