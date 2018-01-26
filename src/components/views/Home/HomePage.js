@@ -13,7 +13,7 @@ class HomePage extends Component {
     clearInterval(this.interval);
   }
 
-  static getStatus(current,maximum,minimum){
+  getStatus = (current,maximum,minimum)=>{
     if(current > maximum || current < minimum) return "danger";
     else  return'success';
   }
